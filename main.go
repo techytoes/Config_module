@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-type setup struct {
+type Setup struct {
 	port int	`json:"port"`
 	host string	`json:"host"`
 	gormLogging bool	`json:"gorm_logging"`
@@ -18,12 +18,12 @@ type setup struct {
 	}
 }
 
-type configuration struct {
-	prod setup	`json:"prod"`
-	debug setup	`json:"debug"`
+type Configuration struct {
+	prod Setup	`json:"prod"`
+	debug Setup	`json:"debug"`
 }
 
-func readConfig(filename string, defaults map[string]interface{}) (*viper.Viper, error) {
+func ReadConfig(filename string, defaults map[string]interface{}) (*viper.Viper, error) {
 	v := viper.New()
 	for key, value := range defaults {
 		v.SetDefault(key, value)
