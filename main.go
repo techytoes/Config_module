@@ -34,3 +34,7 @@ func ReadConfig(filename string, defaults map[string]interface{}) (*viper.Viper,
 	err := v.ReadInConfig()
 	return v, err
 }
+
+func main() {
+	
+}
