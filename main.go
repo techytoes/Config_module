@@ -5,22 +5,24 @@ import (
 )
 
 type Setup struct {
-	port int	`json:"port"`
-	host string	`json:"host"`
-	gormLogging bool	`json:"gorm_logging"`
+	Port int	`json:"port"`
+	Host string	`json:"host"`
+	GormLogging bool	`json:"gorm_logging"`
 
-	db struct {
-		dbUsername  string	`json:"db_username"`
-		dbPassword string	`json:"db_password"`
-		dbAddr     string	`json:"db_addr"`
-		dbPort     int	`json:"db_port"`
-		dbName     string	`json:"db_name"`
-	}
+	//db struct {
+	//	dbUsername  string	`json:"db_username"`
+	//	dbPassword string	`json:"db_password"`
+	//	dbAddr     string	`json:"db_addr"`
+	//	dbPort     int	`json:"db_port"`
+	//	dbName     string	`json:"db_name"`
+	//}
+
+	DBConnectionString string `json:"db_connection_string"`
 }
 
 type Configuration struct {
-	prod Setup	`json:"prod"`
-	debug Setup	`json:"debug"`
+	Prod Setup	`json:"prod"`
+	Debug Setup	`json:"debug"`
 }
 
 func ReadConfig(filename string, defaults map[string]interface{}) (*viper.Viper, error) {
